@@ -143,3 +143,32 @@
 #VLC
 	sudo snap install vlc
 	
+#RM
+	colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug
+	
+	#Camera Node
+	#SN
+	bash
+	su
+	source /opt/ros/galactic/setup.bash
+	. install/setup.bash
+	ros2 launch rm_entity_cam mindvision_cam.launch.py
+	
+	#Communication Node
+	#tty*
+	ls /dev/tty*
+	sudo chmod 777 /dev/ttyACM0
+	. install/setup.zsh
+	ros2 launch rm_base test_serial_recv.launch.py
+	
+	#Auto Aim Node
+	. install/setup.zsh
+	ros2 launch rm_auto_aim auto_aim_node.launch.py
+	
+	#IMU Node
+	ls /dev/tty*
+	sudo chmod 777 /dev/ttyUSB0
+	ros2 launch rm_launch imu_up.launch.py
+	
+	###
+	ros2 launch rm_launch all_up.launch.py
