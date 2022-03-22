@@ -1,3 +1,10 @@
+### ubuntu memory configration
+	main 	swap 	16GB=16384MB
+	logic 	/efi	512MB
+	logic 	/boot	1GB=1024MB
+	logic	/home	64GB=65536MB
+	logic	/		32GB=32768MB($REMAIN)
+
 #Chrome
 	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 	sudo dpkg -i google-chrome-stable_current_amd64.deb
@@ -45,6 +52,8 @@
 	source /opt/ros/galactic/setup.zsh
 	echo "source /opt/ros/galactic/setup.zsh" >> ~/.zshrc 
 	source ~/.zshrc
+	
+	sudo apt-get install python3-colcon-common-extensions
 
 #CUDA11.2
 	wget https://developer.download.nvidia.com/compute/cuda/11.0.3/local_installers/cuda_11.0.3_450.51.06_linux.run
